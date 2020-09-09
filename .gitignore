@@ -1,0 +1,4 @@
+.idea/
+data_structures/python/__pycache__/
+data_structures/python/tests/__pycache__/
+venv/
