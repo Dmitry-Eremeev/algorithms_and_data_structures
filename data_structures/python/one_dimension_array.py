@@ -2,8 +2,7 @@ from ctypes import py_object
 
 
 class OneDimensionArray:
-    def __init__(self, size):
-        assert size > 0, "size must be positive"
+    def __init__(self, size=0):
         self.__size = size
         self.__array_type = py_object * self.__size
         self._array = self.__array_type()
