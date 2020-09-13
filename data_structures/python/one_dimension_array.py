@@ -2,15 +2,15 @@ from ctypes import py_object
 
 
 class OneDimensionArray:
-    def __init__(self, size=0):
+    def __init__(self, size=0, init_value=None):
         self.__size = size
         self.__array_type = py_object * self.__size
         self._array = self.__array_type()
-        self._init_items()
+        self._init_items(init_value=init_value)
 
-    def _init_items(self):
+    def _init_items(self, init_value=None):
         for index in range(len(self._array)):
-            self._array[index] = None
+            self._array[index] = init_value
 
     def __len__(self):
         return self.__size
@@ -28,6 +28,9 @@ class OneDimensionArray:
 
     def _is_index_out_of_range(self, index):
         assert 0 <= index < len(self._array), "Index out of range"
+
+    def clear(self, value=None):
+        self._init_items(init_value=value)
 
 
 class OneDimensionArrayIterator:
